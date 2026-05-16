@@ -1,14 +1,12 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  Marquee,
-  MarqueeContent,
-  MarqueeFade,
-  MarqueeItem,
-} from "@/components/kibo-ui/marquee";
+import dynamic from "next/dynamic";
+
+const Marquee = dynamic(() => import("@/components/kibo-ui/marquee").then(mod => mod.Marquee), { ssr: true });
+const MarqueeContent = dynamic(() => import("@/components/kibo-ui/marquee").then(mod => mod.MarqueeContent), { ssr: true });
+const MarqueeFade = dynamic(() => import("@/components/kibo-ui/marquee").then(mod => mod.MarqueeFade), { ssr: true });
+const MarqueeItem = dynamic(() => import("@/components/kibo-ui/marquee").then(mod => mod.MarqueeItem), { ssr: true });
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -81,8 +79,9 @@ const About3 = ({ className }: { className?: string }) => {
             <Image
               src="/about-main.webp"
               alt="Professional homework help and essay writing services in Los Angeles"
-              width={1400}
-              height={900}
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
               className="h-full min-h-[420px] w-full object-cover"
             />
           </div>
@@ -130,7 +129,7 @@ const About3 = ({ className }: { className?: string }) => {
                 asChild
                 className="mt-8 bg-accent text-accent-foreground hover:opacity-90"
               >
-                <Link href="/order-now">
+                <Link href="/order-now" prefetch={false}>
                   Get Homework Help
                 </Link>
               </Button>
@@ -143,6 +142,7 @@ const About3 = ({ className }: { className?: string }) => {
                 alt="College students receiving academic support"
                 width={700}
                 height={500}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                 className="h-full min-h-[260px] w-full object-cover"
               />
             </div>

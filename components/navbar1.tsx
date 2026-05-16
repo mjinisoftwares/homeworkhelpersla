@@ -188,6 +188,7 @@ const Navbar1 = ({ className }: NavbarProps) => {
                 size="icon"
                 variant="outline"
                 className="rounded-xl border-primary/20"
+                aria-label="Open Menu"
               >
                 <Menu className="size-5 text-primary" />
               </Button>

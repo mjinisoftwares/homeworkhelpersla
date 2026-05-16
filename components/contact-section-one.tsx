@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   CalendarDays,
@@ -27,7 +25,7 @@ import {
 
 export default function OrderFormSection() {
   return (
-    <section className="bg-muted/40 h-[700px] overflow-y-scroll py-20 sm:py-24 lg:py-32">
+    <section className="bg-muted/40 py-20 sm:py-24 lg:py-32">
       <div className="container">
         {/* Header */}
         <div className="mx-auto max-w-4xl text-center">
@@ -196,12 +194,12 @@ export default function OrderFormSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>
+                    <Label htmlFor="country">
                       Country / Region
                     </Label>
 
                     <Select>
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger id="country" className="h-12">
                         <SelectValue placeholder="Select country" />
                       </SelectTrigger>
 
@@ -232,12 +230,12 @@ export default function OrderFormSection() {
 
                 {/* Assignment Type */}
                 <div className="space-y-2">
-                  <Label>
+                  <Label htmlFor="assignment-type">
                     Type of Assignment
                   </Label>
 
                   <Select>
-                    <SelectTrigger className="h-12">
+                    <SelectTrigger id="assignment-type" className="h-12">
                       <SelectValue placeholder="Select assignment type" />
                     </SelectTrigger>
 
@@ -288,12 +286,12 @@ export default function OrderFormSection() {
                 {/* Subject + Topic */}
                 <div className="grid gap-5 md:grid-cols-2">
                   <div className="space-y-2">
-                    <Label>
+                    <Label htmlFor="subject">
                       Subject
                     </Label>
 
                     <Select>
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger id="subject" className="h-12">
                         <SelectValue placeholder="Select subject" />
                       </SelectTrigger>
 
@@ -351,12 +349,12 @@ export default function OrderFormSection() {
 
                 {/* Academic Level */}
                 <div className="space-y-2">
-                  <Label>
+                  <Label htmlFor="academic-level">
                     Academic Level
                   </Label>
 
                   <Select>
-                    <SelectTrigger className="h-12">
+                    <SelectTrigger id="academic-level" className="h-12">
                       <SelectValue placeholder="Select academic level" />
                     </SelectTrigger>
 
@@ -391,12 +389,12 @@ export default function OrderFormSection() {
                 {/* Citation + Sources */}
                 <div className="grid gap-5 md:grid-cols-2">
                   <div className="space-y-2">
-                    <Label>
+                    <Label htmlFor="citation-style">
                       Citation Style
                     </Label>
 
                     <Select>
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger id="citation-style" className="h-12">
                         <SelectValue placeholder="Select citation style" />
                       </SelectTrigger>
 
@@ -518,7 +516,7 @@ export default function OrderFormSection() {
 
                 {/* File Upload */}
                 <div className="space-y-3">
-                  <Label>
+                  <Label htmlFor="files">
                     Upload Files
                   </Label>
 
@@ -535,6 +533,7 @@ export default function OrderFormSection() {
                     </p>
 
                     <Input
+                      id="files"
                       type="file"
                       multiple
                       className="mt-6"

@@ -244,7 +244,7 @@ export default function Services() {
               size="lg"
               className="bg-accent text-accent-foreground hover:opacity-90"
             >
-              <Link href="/order-now">
+              <Link href="/order-now" prefetch={false}>
                 Order Now
               </Link>
             </Button>
@@ -254,7 +254,7 @@ export default function Services() {
               size="lg"
               variant="secondary"
             >
-              <Link href="/contact">
+              <Link href="/contact" prefetch={false}>
                 Contact Us
               </Link>
             </Button>

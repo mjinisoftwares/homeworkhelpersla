@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar1 } from "@/components/navbar1";
 import FooterOne from "@/components/footer-one";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: {
@@ -33,13 +29,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", "font-sans", inter.variable)}
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-homework%20helpers.webp"
+          fetchPriority="high"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <Navbar1 />
-        {children}
-          <FooterOne />
-        </body>
+        <main className="flex-grow">
+          {children}
+        </main>
+        <FooterOne />
+      </body>
     </html>
   );
 }

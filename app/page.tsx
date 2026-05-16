@@ -43,9 +43,11 @@ export const metadata: Metadata = {
 };
 
 import { About3 } from "@/components/about3";
-import ContactSectionOne from "@/components/contact-section-one";
-import FaqsSectionOne from "@/components/faqs-section-one";
-import FeaturesTwo from "@/components/features-two";
+import dynamic from "next/dynamic";
+
+const ContactSectionOne = dynamic(() => import("@/components/contact-section-one"), { ssr: true });
+const FaqsSectionOne = dynamic(() => import("@/components/faqs-section-one"), { ssr: true });
+const FeaturesTwo = dynamic(() => import("@/components/features-two"), { ssr: true });
 import { Hero1 } from "@/components/hero1";
 
 export default function Home() {
@@ -53,9 +55,15 @@ export default function Home() {
    <div className="">
     <Hero1 />
         <About3 />
-    <FeaturesTwo />
-    <ContactSectionOne />
-    <FaqsSectionOne />
+    <div className="optimize-rendering">
+      <FeaturesTwo />
+    </div>
+    <div className="optimize-rendering">
+      <ContactSectionOne />
+    </div>
+    <div className="optimize-rendering">
+      <FaqsSectionOne />
+    </div>
   
 
    </div>

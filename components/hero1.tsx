@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
@@ -75,7 +72,7 @@ const Hero1 = ({ className }: { className?: string }) => {
                 size="lg"
                 className="border-accent text-accent hover:bg-accent hover:text-primary"
               >
-                <Link href="/essay-writing-services">
+                <Link href="/essay-writing-services" prefetch={false}>
                   Explore Services
                 </Link>
               </Button>
@@ -88,12 +85,13 @@ const Hero1 = ({ className }: { className?: string }) => {
             <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-3xl" />
 
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
-              <Image
-                src="/hero-homework helpers.webp"
+              <img
+                src="/hero-homework%20helpers.webp"
                 alt="Los Angeles Homework Help and Essay Writing Services"
-                width={800}
-                height={800}
-                priority
+                width={556}
+                height={481}
+                fetchPriority="high"
+                decoding="async"
                 className=" w-full object-cover border border-4 border-accent "
               />
             </div>

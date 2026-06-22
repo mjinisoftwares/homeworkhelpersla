@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: "%s | Homework Helpers LA",
-    default: "Homework Helpers LA | Professional Academic Support",
+    default: "Homework Helpers LA | Write My Paper | Tutoring Near Me | Academic Writing Services",
   },
   description: "Expert academic assistance in Los Angeles. Original, human-written solutions for college and university students.",
 };

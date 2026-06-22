@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Homework Helpers LA | Professional Academic Support in Los Angeles",
+  title: "Homework Helpers LA | tutoring near me | academic writing services",
   description: "Los Angeles' most trusted homework helpers. We provide expert assistance with math, statistics, programming, essay writing, and online classes. 100% human-written, original work.",
   keywords: ["homework help Los Angeles", "academic writing services", "math homework help", "statistics help", "essay writing help", "online class help"],
   openGraph: {
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Homework Helpers LA | Professional Academic Support",
-    description: "Expert academic assistance in Los Angeles. Original, human-written solutions for college and university students.",
+    title: "Homework Helpers LA | Essay Writing Services | Tutoring Near Me | Los Angeles",
+    description: "Expert academic assistance in Los Angeles. Original, human-written papers and Homework Help for college and university students.",
     images: ["https://homeworkhelpersla.com/images/og-main.jpg"],
   },
   robots: {

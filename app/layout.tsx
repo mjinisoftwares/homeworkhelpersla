@@ -38,6 +38,7 @@ export default function RootLayout({
           href="/hero-homework%20helpers.webp"
           fetchPriority="high"
         />
+        <meta name="google-site-verification" content="fCvSBwiB3ulbvfhVt6ZlPVFkE9mbbVU7jgmZC57XZuY" />
       </head>
       <body className="min-h-full flex flex-col">
         <Navbar1 />

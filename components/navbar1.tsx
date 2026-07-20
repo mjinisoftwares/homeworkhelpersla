@@ -11,11 +11,15 @@ import {
   FlaskConical,
   GraduationCap,
   Laptop,
+  Mail,
+  MapPin,
   Menu,
   PenSquare,
+  Phone,
   ScrollText,
   Sigma,
 } from "lucide-react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import {
   Accordion,
@@ -128,6 +132,58 @@ const Navbar1 = ({ className }: NavbarProps) => {
         className
       )}
     >
+      {/* Topbar */}
+      <div className="hidden border-b border-border/50 bg-accent py-2 text-xs font-medium lg:block">
+        <div className="container flex items-center justify-between">
+          <div className="flex items-center gap-6 text-muted-foreground">
+            <a
+              href="tel:+15551234567"
+              className="flex items-center gap-1.5 transition-colors hover:text-primary"
+            >
+              <Phone className="size-3.5" />
+              <span>+1 (555) 123-4567</span>
+            </a>
+            <a
+              href="mailto:info@homeworkhelpersla.com"
+              className="flex items-center gap-1.5 transition-colors hover:text-primary"
+            >
+              <Mail className="size-3.5" />
+              <span>info@homeworkhelpersla.com</span>
+            </a>
+            <div className="flex items-center gap-1.5 transition-colors hover:text-primary">
+              <MapPin className="size-3.5" />
+              <span>Los Angeles, CA</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 text-muted-foreground">
+            <Link
+              href="#"
+              className="transition-colors hover:text-primary"
+            >
+              <FaFacebook className="size-3.5" />
+            </Link>
+            <Link
+              href="https://x.com/JustLisaNguyen"
+              className="transition-colors hover:text-primary"
+            >
+              <FaTwitter className="size-3.5" />
+            </Link>
+            <Link
+              href="#"
+              className="transition-colors hover:text-primary"
+            >
+              <FaInstagram className="size-3.5" />
+            </Link>
+            <Link
+              href="#"
+              className="transition-colors hover:text-primary"
+            >
+              <FaLinkedin className="size-3.5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="container">
         {/* Desktop Navbar */}
         <nav className="hidden h-24 items-center justify-between lg:flex">

@@ -5,16 +5,16 @@ export const metadata: Metadata = {
   description: "Los Angeles' most trusted homework helpers. We provide expert assistance with math, statistics, programming, essay writing, and online classes. 100% human-written, original work.",
   keywords: ["homework help Los Angeles", "academic writing services", "math homework help", "statistics help", "essay writing help", "online class help"],
   openGraph: {
-    title: "Homework Helpers LA | Professional Academic Support",
-    description: "Expert academic assistance in Los Angeles. Original, human-written solutions for college and university students.",
-    url: "https://homeworkhelpersla.com",
-    siteName: "Homework Helpers LA",
+    title: "Homework Helpers LA | help with my homework | Essay Writing Services | Los Angeles, USA",
+    description: "Are you in Los Angeles, USA and in need of homework helpers? We are here to help We deliver 100% original, human-written papers and answers for college and university students.",
+    url: "https://www.homeworkdoers.help",
+    siteName: "Homework Doers",
     images: [
       {
-        url: "https://homeworkhelpersla.com/images/og-main.jpg",
+        url: "https://www.homeworkdoers.help/images/og-main.jpg",
         width: 1200,
         height: 630,
-        alt: "Homework Helpers LA Academic Support",
+        alt: "Homework Helpers LA",
       },
     ],
     locale: "en_US",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Homework Helpers LA | Essay Writing Services | Tutoring Near Me | Los Angeles",
-    description: "Expert academic assistance in Los Angeles. Original, human-written papers and Homework Help for college and university students.",
-    images: ["https://homeworkhelpersla.com/images/og-main.jpg"],
+    title: "Homework Helpers LA | Essay Writing Services | Tutoring Near Me | Los Angeles, USA",
+    description: "Do you need to pay someone to do your homework? We help with homework in math, statistics, programming, essay writing, and online classes. 100% original, human-written papers and Homework Help for college and university students.",
+    images: ["https://www.homeworkdoers.help/images/og-main.jpg"],
   },
   robots: {
     index: true,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://homeworkhelpersla.com",
+    canonical: "https://www.homeworkdoers.help",
   },
 };
 

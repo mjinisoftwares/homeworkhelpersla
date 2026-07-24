@@ -6,7 +6,7 @@ interface Service {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://homeworkhelpersla.com';
+  const baseUrl = 'https://www.homeworkdoers.help';
 
   const services = (servicesData as Service[]).map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,

@@ -55,7 +55,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const baseUrl = "https://homeworkhelpersla.com";
+  const baseUrl = "https://www.homeworkdoers.help";
   const url = `${baseUrl}/services/${slug}`;
 
   return {
@@ -69,7 +69,7 @@ export async function generateMetadata({
       title: service.metaTitle,
       description: service.metaDescription,
       url: url,
-      siteName: "Homework Helpers LA",
+      siteName: "Homework Doers | Homework Helpers LA",
       images: [
         {
           url: `${baseUrl}${service.ogImage}`,
@@ -121,7 +121,7 @@ export default async function ServicePage({
     "provider": {
       "@type": "Organization",
       "name": "Homework Helpers LA",
-      "url": "https://homeworkhelpersla.com",
+      "url": "https://www.homeworkdoers.help",
     },
     "serviceType": service.shortTitle,
     "areaServed": "Los Angeles, CA",
@@ -142,7 +142,7 @@ export default async function ServicePage({
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://homeworkhelpersla.com/services/${slug}`,
+      "@id": `https://www.homeworkdoers.help/services/${slug}`,
     },
   };
 

@@ -63,14 +63,14 @@
      BRAND COLORS
   ========================== */
 
-  --primary: #00347B; /* Deep Academic Blue */
+  --primary: #0f2437; /* Deep Academic Blue */
   --primary-foreground: #ffffff;
 
-  --accent: #f1bd2b; /* Premium Gold */
-  --accent-foreground: #1a1a1a;
+  --accent: #e05a47; /* Premium Gold */
+  --accent-foreground: #fbecec;
 
-  --secondary: #EAF1FB;
-  --secondary-foreground: #0F2D57;
+  --secondary: #071429;
+  --secondary-foreground: #ffffff;
 
   /* =========================
      BASE UI

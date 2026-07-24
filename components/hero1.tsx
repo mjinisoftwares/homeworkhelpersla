@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -9,12 +10,12 @@ const Hero1 = ({ className }: { className?: string }) => {
   return (
     <section
       className={cn(
-        "relative overflow-hidden py-24 border-b border-primary",
+        "relative overflow-hidden py-20 lg:py-32 border-b border-primary",
         className
       )}
     >
       {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-white pointer-events-none" />
 
       <div className="container relative z-10">
         <div className="grid items-center gap-14 lg:grid-cols-2">
@@ -22,26 +23,45 @@ const Hero1 = ({ className }: { className?: string }) => {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
          
             {/* Heading */}
-            <h1 className="max-w-4xl text-3xl lg:text-5xl font-black text-primary leading-[1.2] lg:pt-10">
+            <h1 className="max-w-4xl text-4xl  font-black text-primary leading-[1.2] lg:pt-10">
               Homework Help & <span className="text-accent px-1">Essay Writing</span> Services in LA
             </h1>
 
             {/* Description */}
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground ">
-              LA Homework Helpers provides professional homework help,
+              Los Angeles based Homework Doers provides professional homework help,
               essay writing, research paper assistance, and online class help
                for college and university students in Los Angeles.
             </p>
 
             {/* SEO Keywords */}
-            <div className="mt-8 grid gap-2 grid-cols-2 lg:grid-cols-3">
+            <div className="mt-4 grid gap-1 grid-cols-2 lg:grid-cols-3">
               {[
                 "Math Homework Help",
                 "Essay Writing Services",
                 "Research Paper Writing",
-                "Online Class Help",
-                "Accounting Homework Help",
-                "College Assignment Help",
+                "homework helpers",
+                "Pay Someone To Do My Homework",
+                "Essay writing help Los Angeles",
+                "help me with math homework",
+                "Do My Statistics Homework",
+                "help with my home work",
+                "Statistics Homework Help",
+                "Assignment Writing Services",
+                "homework doers",
+                "write my paper for me",
+                "College Homework Help",
+                "best homework help USA",
+                "write my research paper",
+                "online class help",
+                " Statistics Assignment Help",
+                "Do my math homework",
+                "Do my programming homework",
+                "assignment writing services"
+                
+                
+                
+
               ].map((item) => (
                 <div
                   key={item}
@@ -81,18 +101,17 @@ const Hero1 = ({ className }: { className?: string }) => {
           </div>
 
           {/* Right Image */}
-          <div className="relative lg:pt-10">
+          <div className="relative lg:pt-16">
             <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-3xl" />
 
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
-              <img
+              <Image
                 src="/hero-homework%20helpers.webp"
                 alt="Los Angeles Homework Help and Essay Writing Services"
                 width={556}
                 height={481}
-                fetchPriority="high"
-                decoding="async"
-                className=" w-full object-cover border border-4 border-accent "
+                priority
+                className="w-full object-cover border border-4 border-accent"
               />
             </div>
           </div>

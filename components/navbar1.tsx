@@ -135,7 +135,7 @@ const Navbar1 = ({ className }: NavbarProps) => {
       {/* Topbar */}
       <div className="hidden border-b border-border/50 bg-accent py-2 text-xs font-medium lg:block">
         <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-6 text-muted-foreground">
+          <div className="flex items-center gap-6 text-secondary-foreground">
             <a
               href="tel:+15551234567"
               className="flex items-center gap-1.5 transition-colors hover:text-primary"
@@ -155,28 +155,28 @@ const Navbar1 = ({ className }: NavbarProps) => {
               <span>Los Angeles, CA</span>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-muted-foreground">
+          <div className="flex items-center gap-4 text-secondary-foreground">
             <Link
               href="#"
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-secondary-foreground "
             >
               <FaFacebook className="size-3.5" />
             </Link>
             <Link
               href="https://x.com/JustLisaNguyen"
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-secondary-foreground"
             >
               <FaTwitter className="size-3.5" />
             </Link>
             <Link
               href="#"
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-secondary-foreground"
             >
               <FaInstagram className="size-3.5" />
             </Link>
             <Link
               href="#"
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-secondary-foreground"
             >
               <FaLinkedin className="size-3.5" />
             </Link>
@@ -184,7 +184,7 @@ const Navbar1 = ({ className }: NavbarProps) => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container border-b border-border/70 bg-accent/5 backdrop-blur-xl">
         {/* Desktop Navbar */}
         <nav className="hidden h-24 items-center justify-between lg:flex">
           {/* Left */}

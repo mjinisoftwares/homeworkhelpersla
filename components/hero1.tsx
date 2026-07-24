@@ -23,7 +23,7 @@ const Hero1 = ({ className }: { className?: string }) => {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
          
             {/* Heading */}
-            <h1 className="max-w-4xl text-4xl  font-black text-primary leading-[1.2] lg:pt-10">
+            <h1 className="max-w-4xl text-4xl lg:text-5xl  font-black text-primary leading-[1.2] lg:pt-10">
               Homework Help & <span className="text-accent px-1">Essay Writing</span> Services in LA
             </h1>
 
@@ -97,15 +97,15 @@ const Hero1 = ({ className }: { className?: string }) => {
           </div>
 
           {/* Right Image */}
-          <div className="relative lg:pt-16">
+          <div className="relative ">
             <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-3xl" />
 
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
               <Image
                 src="/hero-homework%20helpers.webp"
                 alt="Los Angeles Homework Help and Essay Writing Services"
-                width={556}
-                height={481}
+                width={550}
+                height={550}
                 priority
                 className="w-full object-cover border border-4 border-accent"
               />

@@ -46,7 +46,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface MenuItem {
@@ -196,9 +196,14 @@ const Navbar1 = ({ className }: NavbarProps) => {
             >
               
              <div className="flex flex-col">
-  <span className="text-2xl font-black leading-[1.2] tracking-tight text-primary">
-    Homework <span className="text-accent">Helpers</span> LA
-  </span>
+  <Image
+                src="/homework-doers.webp"
+                alt="Los Angeles Homework Help and Essay Writing Services"
+                width={100}
+                height={100}
+                priority
+                className="w-full object-cover "
+              />
 </div>
             </Link>
 

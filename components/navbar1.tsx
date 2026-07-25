@@ -144,11 +144,11 @@ const Navbar1 = ({ className }: NavbarProps) => {
               <span>+1 (555) 123-4567</span>
             </a>
             <a
-              href="mailto:myhomeworkdoers@gmail.com"
+              href="mailto:info@homeworkdoers.help"
               className="flex items-center gap-1.5 transition-colors hover:text-primary"
             >
               <Mail className="size-3.5" />
-              <span>myhomeworkdoers@gmail.com</span>
+              <span>info@homeworkdoers.help</span>
             </a>
             <div className="flex items-center gap-1.5 transition-colors hover:text-primary">
               <MapPin className="size-3.5" />

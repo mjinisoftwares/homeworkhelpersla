@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, MessageCircle } from "lucide-react";
+import { Send, MessageCircle, Loader2 } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { submitOrderForm, type FormState } from "@/app/actions";
 
 const SERVICES = [
   "Essay", "Research Paper", "Assignments", "Online Classes", "Quiz", 
@@ -41,6 +42,8 @@ export function OrderForm() {
     details: "",
   });
 
+  const [currentState, formAction, isPending] = useActionState<FormState, FormData>(submitOrderForm, {});
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -49,49 +52,32 @@ export function OrderForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const constructMessage = () => {
-    return `New Order Request:
-- Service: ${formData.service || "Not specified"}
-- Academic Level: ${formData.level || "Not specified"}
-- Urgency: ${formData.urgency || "Not specified"}
-- Subject: ${formData.subject || "Not specified"}
-- Quantity (Pages/Words/etc): ${formData.quantity || "Not specified"}
-- Email: ${formData.email}
 
-Details: 
-${formData.details}`;
-  };
 
-  const handleWhatsApp = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const message = encodeURIComponent(constructMessage());
-    const whatsappNumber = "1234567890"; // Replace with your number
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
-  };
 
-  const handleEmail = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const message = encodeURIComponent(constructMessage());
-    const emailAddress = "support@homeworkdoers.help"; 
-    window.open(`mailto:${emailAddress}?subject=New Order Request - ${formData.service || "Homework Help"}&body=${message}`, "_blank");
-  };
 
   return (
-    <form className="space-y-6 max-w-3xl mx-auto p-8 bg-card rounded-3xl border border-border shadow-2xl">
+    <form action={formAction} className="space-y-6 max-w-3xl mx-auto p-12 bg-card rounded-3xl border border-border shadow-2xl">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-black text-primary mb-2">Calculate Price & Order</h2>
+        <h2 className="text-2xl font-black text-primary mb-2">Place an Order and We&apos;ll get Back to You With a Price</h2>
         <p className="text-muted-foreground text-sm">
           Price depends on subject, level, urgency, and length. Fill out the details below.
         </p>
       </div>
 
+      {/* Hidden inputs to send state via form submission */}
+      <input type="hidden" name="service" value={formData.service} />
+      <input type="hidden" name="level" value={formData.level} />
+      <input type="hidden" name="urgency" value={formData.urgency} />
+      <input type="hidden" name="subject" value={formData.subject} />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Service */}
         <div className="space-y-2">
           <label className="text-sm font-semibold">Service Needed</label>
-          <Select onValueChange={(val) => handleSelectChange("service", val)}>
+          <Select onValueChange={(val) => handleSelectChange("service", val)} disabled={isPending}>
             <SelectTrigger>
-              <SelectValue placeholder="Select Service" />
+              <SelectValue placeholder={formData.service || "Select Service"} />
             </SelectTrigger>
             <SelectContent>
               {SERVICES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
@@ -102,9 +88,9 @@ ${formData.details}`;
         {/* Academic Level */}
         <div className="space-y-2">
           <label className="text-sm font-semibold">Academic Level</label>
-          <Select onValueChange={(val) => handleSelectChange("level", val)}>
+          <Select onValueChange={(val) => handleSelectChange("level", val)} disabled={isPending}>
             <SelectTrigger>
-              <SelectValue placeholder="Select Level" />
+              <SelectValue placeholder={formData.level || "Select Level"} />
             </SelectTrigger>
             <SelectContent>
               {LEVELS.map((l) => <SelectItem key={l} value={l}>{l}</SelectItem>)}
@@ -115,9 +101,9 @@ ${formData.details}`;
         {/* Subject */}
         <div className="space-y-2">
           <label className="text-sm font-semibold">Subject</label>
-          <Select onValueChange={(val) => handleSelectChange("subject", val)}>
+          <Select onValueChange={(val) => handleSelectChange("subject", val)} disabled={isPending}>
             <SelectTrigger>
-              <SelectValue placeholder="Select Subject" />
+              <SelectValue placeholder={formData.subject || "Select Subject"} />
             </SelectTrigger>
             <SelectContent>
               {SUBJECTS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
@@ -128,9 +114,9 @@ ${formData.details}`;
         {/* Urgency */}
         <div className="space-y-2">
           <label className="text-sm font-semibold">Urgency / Deadline</label>
-          <Select onValueChange={(val) => handleSelectChange("urgency", val)}>
+          <Select onValueChange={(val) => handleSelectChange("urgency", val)} disabled={isPending}>
             <SelectTrigger>
-              <SelectValue placeholder="Select Urgency" />
+              <SelectValue placeholder={formData.urgency || "Select Urgency"} />
             </SelectTrigger>
             <SelectContent>
               {URGENCY.map((u) => <SelectItem key={u} value={u}>{u}</SelectItem>)}
@@ -146,6 +132,7 @@ ${formData.details}`;
             placeholder="e.g. 5 Pages, 10 Questions..." 
             value={formData.quantity} 
             onChange={handleChange} 
+            disabled={isPending}
           />
         </div>
 
@@ -159,6 +146,7 @@ ${formData.details}`;
             value={formData.email} 
             onChange={handleChange} 
             required
+            disabled={isPending}
           />
         </div>
       </div>
@@ -173,27 +161,46 @@ ${formData.details}`;
           onChange={handleChange} 
           rows={5} 
           required 
+          disabled={isPending}
         />
       </div>
+
+      {/* Messages */}
+      {currentState?.success && currentState?.message && (
+        <div className="p-4 rounded-md bg-green-50/50 border border-green-200">
+          <p className="text-center text-sm font-medium text-green-600">
+            ✓ {currentState.message}
+          </p>
+        </div>
+      )}
+      
+      {currentState?.error && (
+        <div className="p-4 rounded-md bg-red-50/50 border border-red-200">
+          <p className="text-center text-sm font-medium text-red-600">
+            {currentState.error}
+          </p>
+        </div>
+      )}
 
       {/* Action Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
         <Button 
-          type="button" 
-          onClick={handleEmail}
+          type="submit" 
+          disabled={isPending}
           className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-base font-bold shadow-lg"
         >
-          <Send className="mr-2 h-5 w-5" />
-          Send via Email
+          {isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Send className="mr-2 h-5 w-5" />}
+          {isPending ? "Sending..." : "Submit Order"}
         </Button>
-        <Button 
-          type="button" 
-          onClick={handleWhatsApp}
-          className="w-full h-12 bg-[#25D366] text-white hover:bg-[#128C7E] transition-colors text-base font-bold shadow-lg"
-        >
-          <MessageCircle className="mr-2 h-5 w-5" />
-          Order via WhatsApp
-        </Button>
+    {/* <Button 
+        type="button" 
+        onClick={handleWhatsApp}
+        disabled={isPending}
+        className="w-full h-12 bg-[#25D366] text-white hover:bg-[#128C7E] transition-colors text-base font-bold shadow-lg"
+    >
+        <MessageCircle className="mr-2 h-5 w-5" />
+        Order via WhatsApp
+    </Button> */}
       </div>
     </form>
   );

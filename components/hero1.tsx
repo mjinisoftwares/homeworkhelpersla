@@ -34,40 +34,7 @@ const Hero1 = ({ className }: { className?: string }) => {
                for college and university students in Los Angeles.
             </p>
 
-            {/* SEO Keywords */}
-            <div className="mt-4 grid gap-1 grid-cols-2 lg:grid-cols-3">
-              {[
-                "Math Homework Help",
-                "Essay Writing Services",
-                "homework helpers",
-                "Pay Someone To Do My Homework",
-                "Essay writing help Los Angeles",
-                "help me with math homework",
-                "Do My Statistics Homework",
-                "help with my home work",
-                "Assignment Writing Services",
-                "homework doers",
-                "write my paper for me",
-                "best homework help USA",
-                "write my research paper",
-                "online class help",
-                "Do my math homework",
-                "Do my programming homework",
-                "assignment writing services"
-                
-                
-                
-
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 text-xs font-medium text-foreground"
-                >
-                  <CheckCircle2 className="size-4 text-accent" />
-                  {item}
-                </div>
-              ))}
-            </div>
+           
 
             {/* Buttons */}
             <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row lg:justify-start">
@@ -100,7 +67,7 @@ const Hero1 = ({ className }: { className?: string }) => {
           <div className="relative ">
             <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl lg:mt-20">
               <Image
                 src="/hero-homework%20helpers.webp"
                 alt="Los Angeles Homework Help and Essay Writing Services"

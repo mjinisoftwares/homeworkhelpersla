@@ -120,7 +120,7 @@ const menu: MenuItem[] = [
   },
   {
     title: "Order Now",
-    url: "/order-now",
+    url: "/order",
   },
 ];
 
@@ -157,7 +157,7 @@ const Navbar1 = ({ className }: NavbarProps) => {
           </div>
           <div className="flex items-center gap-4 text-secondary-foreground">
             <Link
-              href="#"
+              href="https://www.facebook.com/groups/1788841342283041"
               className="transition-colors hover:text-secondary-foreground "
             >
               <FaFacebook className="size-3.5" />
@@ -186,7 +186,7 @@ const Navbar1 = ({ className }: NavbarProps) => {
 
       <div className="container border-b border-border/70 bg-accent/5 backdrop-blur-xl">
         {/* Desktop Navbar */}
-        <nav className="hidden h-24 items-center justify-between lg:flex">
+        <nav className="hidden h-24  justify-between  lg:flex">
           {/* Left */}
           <div className="flex items-center gap-10">
             {/* Logo */}
@@ -215,13 +215,30 @@ const Navbar1 = ({ className }: NavbarProps) => {
             </NavigationMenu>
           </div>
 
-          {/* CTA */}
-          <div className="flex items-center gap-3">
+          {/* /Contact button & CTA */}
+          <div className="flex items-center gap-3 flex">
+
+            <Button
+  asChild
+  className="h-11 rounded-xl bg-white px-6 font-bold text-primary shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] hover:opacity-90"
+>
+  <a href="mailto:[EMAIL_ADDRESS]">
+    Contact Us
+  </a>
+</Button>
+
+            
+        
+
+
+
+
+
                        <Button
               asChild
               className="h-11 rounded-xl bg-accent px-6 font-bold text-accent-foreground shadow-lg shadow-accent/20 transition-all hover:scale-[1.02] hover:opacity-90"
             >
-              <Link href="/order-now">Order Now</Link>
+              <Link href="/order">Order Now</Link>
             </Button>
           </div>
         </nav>
@@ -297,7 +314,7 @@ const Navbar1 = ({ className }: NavbarProps) => {
                     asChild
                     className="h-12 rounded-xl bg-accent font-bold text-accent-foreground"
                   >
-                    <Link href="/order-now">
+                    <Link href="/order">
                       Get Homework Help
                     </Link>
                   </Button>
